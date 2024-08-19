@@ -17,6 +17,12 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
 import LoginForm from "./Forms/LoginForm"
 import Feedback from "./Forms/Feedback"
 import Register from "./Forms/Register"
+import LeaderBoard from "./ScoreBoard/Leaderboard"
+import Rank from "./ScoreBoard/Rank"
+import Age from "./ScoreBoard/Age"
+import Points from "./ScoreBoard/Points"
+import Name from "./ScoreBoard/Name"
+import NavComponent from "./ScoreBoard/NavComponent"
 
 const userData = [
   {
@@ -45,7 +51,7 @@ const userData = [
 function App(){
   return(
     <>
-      <BrowserRouter>
+      {/*<BrowserRouter>
         <Link to="/Login">Login</Link>
         <Link to="/Feedback">Feedback</Link>
         <Link to="/Register">Register</Link>
@@ -54,6 +60,17 @@ function App(){
           <Route path="Feedback" element = {<Feedback></Feedback>}></Route>
           <Route path="Register" element= {<Register></Register>}></Route>
         </Routes>
+      </BrowserRouter>*/}
+      
+      <BrowserRouter>
+      {/* <NavComponent keyword = {6}></NavComponent> */}
+          <Routes>
+            <Route path='/' element={<LeaderBoard></LeaderBoard>}></Route>
+            <Route path="rank" element= {<Rank></Rank>}></Route>
+            <Route path="age" element= {<Age></Age>}></Route>
+            <Route path="points" element={<Points></Points>}></Route>
+            <Route path="name" element= {<Name></Name>}></Route>
+          </Routes>
       </BrowserRouter>
     </>
   )
