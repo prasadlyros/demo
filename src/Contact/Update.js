@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import "./contact.css"
+// import "./contact.css"
 
 class Update extends React.Component{
     constructor(props){

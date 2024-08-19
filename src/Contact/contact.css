@@ -2,12 +2,9 @@
     margin: 10px;
     padding: 10px;
     background-color: rgb(189, 185, 185);
-    display: flex;
-    align-items: center;
 }
 
 form{
-    display: flex;
     margin-bottom: 10px;
 }
 

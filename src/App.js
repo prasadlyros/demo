@@ -13,6 +13,10 @@ import Algolia from "./components/Algolia"
 import ContactManager from "./Contact/ContactManager"
 import PutPatch from "./Contact/PutPatch"
 import Update from "./Contact/Update"
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
+import LoginForm from "./Forms/LoginForm"
+import Feedback from "./Forms/Feedback"
+import Register from "./Forms/Register"
 
 const userData = [
   {
@@ -41,8 +45,16 @@ const userData = [
 function App(){
   return(
     <>
-     {/* <PutPatch></PutPatch> */}
-     <Update></Update>
+      <BrowserRouter>
+        <Link to="/Login">Login</Link>
+        <Link to="/Feedback">Feedback</Link>
+        <Link to="/Register">Register</Link>
+        <Routes>
+          <Route path="Login" element = {<LoginForm></LoginForm>}></Route>
+          <Route path="Feedback" element = {<Feedback></Feedback>}></Route>
+          <Route path="Register" element= {<Register></Register>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
