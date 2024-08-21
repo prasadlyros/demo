@@ -15,7 +15,7 @@ button{
     background-color: black;
     color: white;
     border-radius: 7px;
-    margin-right: 4px;
+    /* margin-right: 4px; */
     padding: 7px;
 }
 
@@ -23,6 +23,6 @@ button:hover{
     background-color: rgb(90, 82, 82);
 }
 
-body{
+/* body{
     background-image: linear-gradient(180deg, rgb(181, 244, 181), rgb(245, 159, 159));
-}
+} */

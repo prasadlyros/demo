@@ -13,7 +13,7 @@ import Algolia from "./components/Algolia"
 import ContactManager from "./Contact/ContactManager"
 import PutPatch from "./Contact/PutPatch"
 import Update from "./Contact/Update"
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Link, NavLink, Route, Routes} from "react-router-dom"
 import LoginForm from "./Forms/LoginForm"
 import Feedback from "./Forms/Feedback"
 import Register from "./Forms/Register"
@@ -23,6 +23,14 @@ import Age from "./ScoreBoard/Age"
 import Points from "./ScoreBoard/Points"
 import Name from "./ScoreBoard/Name"
 import NavComponent from "./ScoreBoard/NavComponent"
+import MainPage from "./NestedRoutes/MainPage"
+import LoginNested from "./NestedRoutes/LoginNested"
+import PagenotFound from "./NestedRoutes/PagenotFound"
+import LoginHooksClass from "./Hooks/LoginHooksClass"
+import NavigateFun from "./Hooks/NavigateFun"
+import Dashboard from "./Hooks/Dashboard"
+import Params from "./Hooks/Params"
+import NavlinkComp from "./Hooks/NavlinkComp"
 
 const userData = [
   {
@@ -62,8 +70,8 @@ function App(){
         </Routes>
       </BrowserRouter>*/}
       
-      <BrowserRouter>
-      {/* <NavComponent keyword = {6}></NavComponent> */}
+      {/*<BrowserRouter>
+       <NavComponent keyword = {6}></NavComponent> 
           <Routes>
             <Route path='/' element={<LeaderBoard></LeaderBoard>}></Route>
             <Route path="rank" element= {<Rank></Rank>}></Route>
@@ -71,6 +79,19 @@ function App(){
             <Route path="points" element={<Points></Points>}></Route>
             <Route path="name" element= {<Name></Name>}></Route>
           </Routes>
+      </BrowserRouter>*/}
+      <BrowserRouter>
+        <NavlinkComp></NavlinkComp>
+        <Routes>
+          {/* <Link to ="/mainpage">Main</Link> 
+          <Route path="/mainpage" element ={<MainPage></MainPage>}>
+            <Route path="login" element = {<LoginNested></LoginNested>}></Route>
+            <Route path="*" element = {<PagenotFound></PagenotFound>}></Route>
+          </Route>
+          <Route path="*" element = {<PagenotFound></PagenotFound>}></Route>*/}
+          <Route path="/login" element = {<NavigateFun></NavigateFun>}></Route>
+          <Route path="/dashboard/:username" element={<Params></Params>}></Route>
+        </Routes>
       </BrowserRouter>
     </>
   )
