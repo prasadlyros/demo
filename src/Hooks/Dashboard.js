@@ -11,7 +11,7 @@ class Dashboard extends React.Component{
         return(
             <>
                 <h1>We are getting into dashboard component by using navigate fun</h1>
-                <p>Username : {username}</p>
+                <p>Hello : {username}</p>
             </>
         )
     }

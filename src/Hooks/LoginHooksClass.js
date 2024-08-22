@@ -1,3 +1,4 @@
+import axios from "axios"
 import React from "react"
 
 class LoginHooksClass extends React.Component{
@@ -9,6 +10,10 @@ class LoginHooksClass extends React.Component{
             errorMsg : ""
         }
     }
+
+    // componentDidMount(){
+    //     axios.get("http://localhost:3001/ContactDetails").then((res) => this.setState({results : res.data})).catch((err) => console.log(err))
+    // }
 
     handleInput = (e, keyword) => {
         if(keyword === "username"){
@@ -22,14 +27,25 @@ class LoginHooksClass extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault()
         const {navigate} = this.props.fun
+        console.log(navigate)
         const {username, password} = this.state
-        if(!username || !password){
-            this.setState({errorMsg : "Please enter the required feilds"})
-        }
-        else{
-            navigate(`/dashboard/${this.state.username}`)
-        }
-        
+        axios.get(`http://localhost:3001/UserDetails?uname=${this.state.username}`).then((res) => {
+            const response = res.data[0]
+            // console.log(username === '')
+            if(response && username !== ''){
+                // this.setState({errorMsg : "Please enter the correct username"})
+                if(response.password === this.state.password){
+                    navigate(`/dashboard/${username}`)
+                }
+                else{
+                    this.setState({errorMsg : "please enter correct password"})
+                }
+            }
+            else{
+                alert("Need to create a user")
+                navigate('/signin')
+            }
+        }) 
     }
 
     render(){

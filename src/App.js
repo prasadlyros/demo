@@ -31,6 +31,8 @@ import NavigateFun from "./Hooks/NavigateFun"
 import Dashboard from "./Hooks/Dashboard"
 import Params from "./Hooks/Params"
 import NavlinkComp from "./Hooks/NavlinkComp"
+import Signin from "./Hooks/Signin"
+import SigninFun from "./Hooks/SigninFun"
 
 const userData = [
   {
@@ -81,7 +83,7 @@ function App(){
           </Routes>
       </BrowserRouter>*/}
       <BrowserRouter>
-        <NavlinkComp></NavlinkComp>
+        {/* <NavlinkComp></NavlinkComp> */}
         <Routes>
           {/* <Link to ="/mainpage">Main</Link> 
           <Route path="/mainpage" element ={<MainPage></MainPage>}>
@@ -89,8 +91,11 @@ function App(){
             <Route path="*" element = {<PagenotFound></PagenotFound>}></Route>
           </Route>
           <Route path="*" element = {<PagenotFound></PagenotFound>}></Route>*/}
-          <Route path="/login" element = {<NavigateFun></NavigateFun>}></Route>
+          <Route path="/" element = {<NavigateFun></NavigateFun>}></Route>
           <Route path="/dashboard/:username" element={<Params></Params>}></Route>
+          <Route path="/signin" element = {<SigninFun></SigninFun>}></Route>
+          <Route path="/*" element = {<PagenotFound></PagenotFound>}></Route>
+          {/* <Route path="/dashboard/:username" element= {<Params></Params>}></Route> */}
         </Routes>
       </BrowserRouter>
     </>
